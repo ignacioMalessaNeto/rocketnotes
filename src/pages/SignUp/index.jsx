@@ -10,6 +10,8 @@ import { Container, Form, Background } from './styles';
 
 import {useState} from "react";
 
+import swal from 'sweetalert';
+
 
 export function SignUp(){
 
@@ -21,20 +23,20 @@ export function SignUp(){
 
     function handleSignUp() {
         if(!name || !email || !password){
-            return alert("Preencha todos os campos!")
+            return swal("Preencha todos os campos!")
         }
 
 
         api.post("/users", { name,email,password})
         .then(()=>{
-            alert("Usuário cadastrado com sucesso!")
+            swal("Usuário cadastrado com sucesso!")
             navigate("/");
         })
         .catch(error =>{
             if(error.response){
-                alert(error.response.data.message);
+                swal(error.response.data.message);
             }else {
-                alert("Não foi possível cadastrar");
+                swal("Não foi possível cadastrar");
             }
         })
     }

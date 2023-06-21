@@ -2,6 +2,8 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { api } from '../services/api';
 const AuthContext = createContext({});
 
+import swal from "sweetalert";
+
 function AuthProvider({ children }) {
     const [data, setData] = useState({});
 
@@ -21,9 +23,9 @@ function AuthProvider({ children }) {
         }
         catch (error) {
             if (error.response) {
-                alert(error.response.data.message)
+                swal(error.response.data.message)
             } else {
-                alert("Não foi possível entrar.")
+                swal("Não foi possível entrar.")
             }
         }
     }

@@ -73,7 +73,7 @@ export function New() {
             links
         })
 
-        alert("Nota criada com sucesso!");
+        swal("Nota criada com sucesso!");
         navigate(-1);
     }
 
