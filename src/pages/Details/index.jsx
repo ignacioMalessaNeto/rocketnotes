@@ -12,6 +12,8 @@ import { Header } from '../../Components/Header'
 import { Section } from '../../Components/Section';
 import { ButtonText } from "../../Components/ButtonText";
 
+import swal from 'sweetalert';
+
 export function Details() {
   const [data, setData] = useState(null);
 
@@ -33,7 +35,7 @@ export function Details() {
   }
 
   async function handleRemove() {
-    const confirm = window.confirm("Deseja excluir essa nota? ")
+    const confirm = window.confirm.swal("Deseja excluir essa nota? ")
 
     if (confirm) {
       await api.delete(`/notes/${params.id}`);
