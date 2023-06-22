@@ -35,7 +35,7 @@ export function Details() {
   }
 
   async function handleRemove() {
-    const confirm = <window className="confirm"></window>("Deseja excluir essa nota? ")
+    const confirm = window.confirm("Deseja excluir essa nota?")
 
     if (confirm) {
       await api.delete(`/notes/${params.id}`);
